@@ -35,7 +35,7 @@ const Login = ({
     backgroundColor: "rgba(244, 244, 244, 0.9)",
   };
   const fieldStyle = {
-    margin: "8px 0",
+    margin: "10px",
   };
   const handleButtonClick = () => {
     dispatch(
