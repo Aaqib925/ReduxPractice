@@ -12,3 +12,4 @@ Store.dispatch({
 });
 
 console.log(Store.getState());
+  
