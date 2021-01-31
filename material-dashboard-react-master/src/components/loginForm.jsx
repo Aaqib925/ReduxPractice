@@ -67,7 +67,7 @@ const Login = () => {
     if (result === undefined) {
       alert("Account doesn't exist, Please Sign up");
     } else {
-      register(dispatch, { userName, password, email });
+      dispatch(register({ userName, password, email }));
       pushHistory();
     }
   };
