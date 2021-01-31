@@ -21,8 +21,8 @@ ReactDOM.render(
           <Route path="/admin/landing" exact component={App} />
           <Route path="/admin" component={Admin} />
           <Route path="/rtl" component={RTL} />
-          <Route path="/404" component={App} />
-          <Redirect from="*" to="/404" />
+          <Route path="/main" component={App} />
+          <Redirect from="*" to="/main" />
         </Switch>
       </Router>
     </Provider>

@@ -6,6 +6,7 @@
   "main": "dist/index.js",
   "dependencies": {
     "@material-ui/core": "4.10.0",
+    "@material-ui/data-grid": "^4.0.0-alpha.18",
     "@material-ui/icons": "4.9.1",
     "antd": "^4.11.2",
     "chartist": "0.10.1",
