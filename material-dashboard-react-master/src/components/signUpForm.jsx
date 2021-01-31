@@ -63,66 +63,68 @@ const SignUpForm = () => {
     setPassword("");
   };
   return (
-    <Grid>
-      <Paper elevation={10} style={paperStyle}>
-        <Grid align="center">
-          <Avatar style={avatarStyle}>
-            <AccountCircleIcon />
-          </Avatar>
-          <h2>Register Account</h2>
-        </Grid>
-        <TextField
-          style={fieldStyle}
-          label="Username"
-          value={userName}
-          error={!validUserName}
-          helperText={validUserName ? "" : "User Already Exist"}
-          placeholder="Enter username"
-          fullWidth
-          required
-          variant="outlined"
-          onChange={(e) => handleUserName(e)}
-          onBlur={() => checkForValidUserName(userName)}
-        />
-        <TextField
-          style={fieldStyle}
-          label="Email"
-          value={email}
-          placeholder="Enter Email"
-          error={!validEmail}
-          helperText={validEmail ? "" : "Invalid Email "}
-          fullWidth
-          required
-          variant="outlined"
-          onChange={handleEmail}
-          onBlur={() => {
-            checkForValidEmail(email);
-          }}
-        />
-        <TextField
-          style={fieldStyle}
-          label="Password"
-          value={password}
-          placeholder="Enter password"
-          type="password"
-          fullWidth
-          required
-          variant="outlined"
-          onChange={handlePassword}
-        />
-        <Button
-          disabled={!openButton()}
-          type="submit"
-          color="primary"
-          variant="contained"
-          style={btnstyle}
-          fullWidth
-          onClick={handleRegister}
-        >
-          Register
-        </Button>
-      </Paper>
-    </Grid>
+    <div>
+      <Grid>
+        <Paper elevation={10} style={paperStyle}>
+          <Grid align="center">
+            <Avatar style={avatarStyle}>
+              <AccountCircleIcon />
+            </Avatar>
+            <h2>Register Account</h2>
+          </Grid>
+          <TextField
+            style={fieldStyle}
+            label="Username"
+            value={userName}
+            error={!validUserName}
+            helperText={validUserName ? "" : "User Already Exist"}
+            placeholder="Enter username"
+            fullWidth
+            required
+            variant="outlined"
+            onChange={(e) => handleUserName(e)}
+            onBlur={() => checkForValidUserName(userName)}
+          />
+          <TextField
+            style={fieldStyle}
+            label="Email"
+            value={email}
+            placeholder="Enter Email"
+            error={!validEmail}
+            helperText={validEmail ? "" : "Invalid Email "}
+            fullWidth
+            required
+            variant="outlined"
+            onChange={handleEmail}
+            onBlur={() => {
+              checkForValidEmail(email);
+            }}
+          />
+          <TextField
+            style={fieldStyle}
+            label="Password"
+            value={password}
+            placeholder="Enter password"
+            type="password"
+            fullWidth
+            required
+            variant="outlined"
+            onChange={handlePassword}
+          />
+          <Button
+            disabled={!openButton()}
+            type="submit"
+            color="primary"
+            variant="contained"
+            style={btnstyle}
+            fullWidth
+            onClick={handleRegister}
+          >
+            Register
+          </Button>
+        </Paper>
+      </Grid>
+    </div>
   );
 };
 
