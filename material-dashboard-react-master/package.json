@@ -11,6 +11,7 @@
     "antd": "^4.11.2",
     "chartist": "0.10.1",
     "classnames": "2.2.6",
+    "google-map-react": "^2.1.9",
     "history": "4.10.1",
     "perfect-scrollbar": "1.5.0",
     "prop-types": "15.7.2",

@@ -176,7 +176,7 @@ export default function FixedPlugin(props) {
     //     </ul>
     //   </div>
     // </div>
-    <div>H1</div>
+    <div>""</div>
   );
 }
 
