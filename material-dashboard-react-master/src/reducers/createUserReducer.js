@@ -1,4 +1,4 @@
-let lastID = 0;
+// let lastID = 0;
 
 const createUserReducer = (state = [], action) => {
   switch (action.type) {
@@ -6,7 +6,7 @@ const createUserReducer = (state = [], action) => {
       return [
         ...state,
         {
-          id: ++lastID,
+          id: action.payload.id,
           firstName: action.payload.firstName,
           lastName: action.payload.lastName,
           email: action.payload.email,

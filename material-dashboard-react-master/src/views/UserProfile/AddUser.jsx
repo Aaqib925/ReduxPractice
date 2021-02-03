@@ -9,11 +9,11 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 import { createUser } from "../../actions/createUser";
 const AddUser = () => {
+  let id = 0;
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(true);
-  // const storeData = Store.getState().createUserReducer;
 
   const btnstyle = { margin: "8px 0" };
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const AddUser = () => {
     return (
       <div>
         <IconButton>
-          <EditIcon onClick={() => History.push("/editUser")} />
+          <EditIcon onClick={() => console.log(id)} />
         </IconButton>
         <IconButton>
           <DeleteIcon onClick={() => console.log("Delete Icon")} />
@@ -52,7 +52,7 @@ const AddUser = () => {
   };
   const handleRegister = () => {
     const userActions = createDivOfActions();
-    createUser(dispatch, { firstName, lastName, email, userActions });
+    createUser(dispatch, { ID: ++id, firstName, lastName, email, userActions });
 
     setFirstName("");
     setEmail("");
