@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import { Grid, TextField, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-// import Store from "../store/store";
-// import { useDispatch } from "react-redux";
-// import { signUp } from "../actions/signUpAction";
+// import Store from "../../store/store";
+import { useDispatch } from "react-redux";
+import EditIcon from "@material-ui/icons/Edit";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
+
+import { createUser } from "../../actions/createUser";
 const AddUser = () => {
-  const [userName, setUserName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(true);
-  // const storeData = Store.getState().signUpReducer;
+  // const storeData = Store.getState().createUserReducer;
 
   const btnstyle = { margin: "8px 0" };
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const fieldStyle = { margin: "10px 0px" };
   const handleUserName = (e) => {
-    setUserName(e.target.value);
+    setFirstName(e.target.value);
   };
 
   const handleLastName = (e) => {
@@ -34,13 +38,26 @@ const AddUser = () => {
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
+  const createDivOfActions = () => {
+    return (
+      <div>
+        <IconButton>
+          <EditIcon onClick={() => History.push("/editUser")} />
+        </IconButton>
+        <IconButton>
+          <DeleteIcon onClick={() => console.log("Delete Icon")} />
+        </IconButton>
+      </div>
+    );
+  };
+  const handleRegister = () => {
+    const userActions = createDivOfActions();
+    createUser(dispatch, { firstName, lastName, email, userActions });
 
-  // const handleRegister = () => {
-  //   signUp(dispatch, { userName, password, email });
-  //   setUserName("");
-  //   setEmail("");
-  //   setPassword("");
-  // };
+    setFirstName("");
+    setEmail("");
+    setLastName("");
+  };
   const openButton = () => {
     return validEmail;
   };
@@ -59,7 +76,7 @@ const AddUser = () => {
         <TextField
           style={fieldStyle}
           label="First Name"
-          value={userName}
+          value={firstName}
           placeholder="Enter First Name"
           required
           fullWidth
@@ -96,7 +113,7 @@ const AddUser = () => {
           color="primary"
           variant="contained"
           style={btnstyle}
-          // onClick={handleRegister}
+          onClick={handleRegister}
         >
           Add User
         </Button>
