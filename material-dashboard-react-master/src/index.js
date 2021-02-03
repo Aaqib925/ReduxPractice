@@ -7,6 +7,8 @@ import Store from "./store/store";
 import { Provider } from "react-redux";
 import Admin from "layouts/Admin.js";
 import RTL from "layouts/RTL.js";
+import editForm from "../src/views/UserProfile/editForm";
+import AddUser from "../src/views/UserProfile/AddUser";
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 // import "assets/css/material-dashboard-react.css?v=1.9.0";
@@ -18,7 +20,10 @@ ReactDOM.render(
     <Provider store={Store}>
       <Router history={hist}>
         <Switch>
-          <Route path="/admin/landing" exact component={App} />
+          <Route path="/admin/user/AddUser" exact component={AddUser} />
+          <Route path="/editUser" exact component={editForm} />
+
+          <Route exact path="/admin/landing" component={App} />
           <Route path="/admin" component={Admin} />
           <Route path="/rtl" component={RTL} />
           <Route path="/main" component={App} />
