@@ -8,9 +8,19 @@ export const bugAdded = (description) => {
     },
   };
 };
+
 export const resolveBug = (id) => {
   return {
     type: actions.RESOLVE_BUG,
+    payload: {
+      id,
+    },
+  };
+};
+
+export const removeBug = (id) => {
+  return {
+    type: actions.BUG_REMOVED,
     payload: {
       id,
     },
