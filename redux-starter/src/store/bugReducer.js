@@ -1,7 +1,7 @@
 import * as actions from "./actionTypes";
 let lastID = 0;
 
-const reducer = (state = [], action) => {
+const bugReducer = (state = [], action) => {
   switch (action.type) {
     case actions.BUG_ADDED:
       return [
@@ -23,4 +23,4 @@ const reducer = (state = [], action) => {
   }
 };
 
-export default reducer;
+export default bugReducer;

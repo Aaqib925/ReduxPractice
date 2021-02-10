@@ -26,3 +26,12 @@ export const removeBug = (id) => {
     },
   };
 };
+
+export const addProject = (name) => {
+  return {
+    type: actions.PROJECT_ADDED,
+    payload: {
+      name,
+    },
+  };
+};
