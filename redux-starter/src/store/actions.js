@@ -1,4 +1,5 @@
 import * as actions from "./actionTypes";
+import bugReducer from "./bugReducer";
 
 export const bugAdded = (description) => {
   return {
@@ -35,3 +36,6 @@ export const addProject = (name) => {
     },
   };
 };
+// Selector
+export const getUnresolveBugs = (state) =>
+  state.entities.bugReducer.filter((bug) => !bug.resolved);
