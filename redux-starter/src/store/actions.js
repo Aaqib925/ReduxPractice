@@ -1,6 +1,5 @@
 import * as actions from "./actionTypes";
-import bugReducer from "./bugReducer";
-
+import { createSelector } from "reselect";
 export const bugAdded = (description) => {
   return {
     type: actions.BUG_ADDED,
@@ -36,6 +35,30 @@ export const addProject = (name) => {
     },
   };
 };
+
+export const addUser = (name) => {
+  return {
+    type: actions.ADD_USER,
+    payload: {
+      name,
+    },
+  };
+};
+
+export const bugAssigned = (obj) => {
+  return {
+    type: actions.ASSIGN_BUG,
+    payload: obj,
+  };
+};
+
 // Selector
-export const getUnresolveBugs = (state) =>
-  state.entities.bugReducer.filter((bug) => !bug.resolved);
+// export const getUnresolveBugs = (state) =>
+//   state.entities.bugReducer.filter((bug) => !bug.resolved);
+
+// Memoization version for get unresolved bugs from the cache if bugs are not changed
+
+export const getUnresolveBugs = createSelector(
+  (state) => state.entities.bugReducer,
+  (bugReducer) => bugReducer.filter((bug) => !bug.resolved)
+);

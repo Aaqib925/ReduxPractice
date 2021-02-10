@@ -18,10 +18,14 @@ const bugReducer = (state = [], action) => {
       return state.map((bug) =>
         bug.id !== action.payload.id ? bug : { ...bug, resolved: true }
       );
+    case actions.ASSIGN_BUG: {
+      const { bugID, userID } = action.payload;
+      const index = state.findIndex((bug) => bug.id === bugID);
+      state[index].userId = userID;
+    }
     default:
       return state;
   }
 };
 
 export default bugReducer;
-
