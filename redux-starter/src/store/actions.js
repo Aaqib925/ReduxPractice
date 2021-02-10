@@ -62,3 +62,9 @@ export const getUnresolveBugs = createSelector(
   (state) => state.entities.bugReducer,
   (bugReducer) => bugReducer.filter((bug) => !bug.resolved)
 );
+
+export const getBugsByUser = (userID) =>
+  createSelector(
+    (state) => state.entities.bugReducer,
+    (bugReducer) => bugReducer.filter((bug) => bug.userId === userID)
+  );

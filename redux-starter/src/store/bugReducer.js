@@ -22,6 +22,7 @@ const bugReducer = (state = [], action) => {
       const { bugID, userID } = action.payload;
       const index = state.findIndex((bug) => bug.id === bugID);
       state[index].userId = userID;
+      return state;
     }
     default:
       return state;

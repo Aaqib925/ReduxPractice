@@ -7,6 +7,7 @@ import {
   addUser,
   bugAssigned,
   getUnresolveBugs,
+  getBugsByUser,
 } from "./store/actions";
 
 Store.dispatch(addUser("User 1"));
@@ -24,4 +25,7 @@ Store.dispatch(addProject("First Project"));
 console.log(Store.getState());
 
 const unResolved = getUnresolveBugs(Store.getState());
+
+const getUserBugs = getBugsByUser(1)(Store.getState());
 console.log(unResolved);
+console.log(getUserBugs);
