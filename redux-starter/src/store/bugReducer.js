@@ -20,9 +20,12 @@ const bugReducer = (state = [], action) => {
       );
     case actions.ASSIGN_BUG: {
       const { bugID, userID } = action.payload;
-      const index = state.findIndex((bug) => bug.id === bugID);
-      state[index].userId = userID;
-      return state;
+      const state2 = [...state];
+      const index = state2.findIndex((bug) => bug.id == bugID);
+      const newField = { ...state2[index] };
+      newField.userId = userID;
+      state2[index] = newField;
+      return state2;
     }
     default:
       return state;
