@@ -34,7 +34,7 @@ Store.dispatch(addUser("User 1"));
 // for conditional dispatching of actions and pass function as argument to dispatch function we need to use thunk middleware.
 // Store.dispatch(() => {});
 
-Store.dispatch({
-  type: "error",
-  payload: { message: "An error occured" },
-});
+// Store.dispatch({
+//   type: "error",
+//   payload: { message: "An error occured" },
+// });
