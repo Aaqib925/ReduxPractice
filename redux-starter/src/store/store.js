@@ -11,9 +11,13 @@
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 // );
 
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import reducer from "./myReducers";
-
-const Store = configureStore({ reducer });
+import logger from "./middleware/logger";
+import errorHandler from "./middleware/errorHandler";
+const Store = configureStore({
+  reducer,
+  middleware: [...getDefaultMiddleware(), logger("console"), errorHandler],
+});
 
 export default Store;
